@@ -6,7 +6,7 @@ room_courtyard = {
     "description":
     """This is the courtyard. TODO ---""",
 
-    "exits": {},
+    "exits": {"north": "Great Hall", "south": "Battlements"},
 
     "items": [],
 
@@ -19,7 +19,7 @@ room_greathall = {
     "description":
     """This is the great hall. TODO ---""",
 
-    "exits": {},
+    "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anti Room"},
 
     "items": [],
 
@@ -32,7 +32,7 @@ room_throne = {
     "description":
     """This is the throne room. TODO ---""",
 
-    "exits": {},
+    "exits": {"east": "Great Hall"},
 
     "items": [],
 
@@ -45,7 +45,7 @@ room_battlements = {
     "description":
     """These are the battlements. TODO ---""",
 
-    "exits": {},
+    "exits": {"west": "Great Hall", "north": "Courtyard"},
 
     "items": [],
 
@@ -58,7 +58,7 @@ room_anti = {
     "description":
     """This is the anti room. TODO ---""",
 
-    "exits": {},
+    "exits": {"south": "Great Hall"},
 
     "items": [],
 
