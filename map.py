@@ -1,4 +1,5 @@
 from items import *
+from people import *
 
 room_courtyard = {
     "name": "Courtyard",
@@ -36,7 +37,7 @@ room_throne = {
 
     "items": [],
 
-    "people": []
+    "people": {"king":people_king}
 }
 
 room_battlements = {

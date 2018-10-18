@@ -1,4 +1,4 @@
-from map import rooms
+from conversations import *
 
 people_king = {
     "id": "king",
@@ -8,11 +8,10 @@ people_king = {
     "description":
     """This is the king.""",
 
-    "conversation": [],
+    "conversation": conv_king,
 
     "items": [],
 
-    "room": rooms["Throne Room"]
 }
 
 people_viceroy = {
@@ -27,7 +26,6 @@ people_viceroy = {
 
     "items": [],
 
-    "room": rooms["Throne Room"]
 }
 
 people_lady = {
@@ -42,7 +40,6 @@ people_lady = {
 
     "items": [],
 
-    "room": rooms["Courtyard"]
 }
 
 people_wizard = {
@@ -57,7 +54,6 @@ people_wizard = {
 
     "items": [],
 
-    "room": rooms["Great Hall"]
 }
 
 people_soldier1 = {
@@ -72,7 +68,6 @@ people_soldier1 = {
 
     "items": [],
 
-    "room": rooms["Battlements"]
 }
 
 people_soldier2 = {
@@ -87,5 +82,4 @@ people_soldier2 = {
 
     "items": [],
 
-    "room": rooms["Battlements"]
 }
