@@ -3,7 +3,7 @@ conv_king = {
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I'm good.", "John"]
+    "responses": ["I'm good.", "Henry"]
 
 }
 
@@ -42,6 +42,7 @@ conv_soldier1 = {
     "responses": ["I'm good.", "Alex"]
 
 }
+
 conv_soldier2 = {
     "opening": "...",
 
