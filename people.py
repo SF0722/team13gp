@@ -22,7 +22,7 @@ people_viceroy = {
     "description":
     """This is the viceroy.""",
 
-    "conversation": [],
+    "conversation": conv_viceroy,
 
     "items": [],
 
@@ -36,7 +36,7 @@ people_lady = {
     "description":
     """This is the lady.""",
 
-    "conversation": [],
+    "conversation": conv_lady,
 
     "items": [],
 
@@ -50,7 +50,7 @@ people_wizard = {
     "description":
     """This is the wizard.""",
 
-    "conversation": [],
+    "conversation": conv_wizard,
 
     "items": [],
 
@@ -64,7 +64,7 @@ people_soldier1 = {
     "description":
     """This is soldier 1.""",
 
-    "conversation": [],
+    "conversation": conv_soldier1,
 
     "items": [],
 
@@ -78,7 +78,7 @@ people_soldier2 = {
     "description":
     """This is soldier 2.""",
 
-    "conversation": [],
+    "conversation": conv_soldier2,
 
     "items": [],
 

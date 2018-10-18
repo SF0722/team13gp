@@ -1,63 +1,62 @@
-item_id = {
-    "id": "id",
+item_goldgoblet = {
+    "id": "goldgoblet",
 
-    "name": "id card",
-
-    "description":
-    """You new shiny student ID card. Expires 1 June 2017.
-You wonder why they have printed a suicide hotline number on it?...""",
-
-    "mass": 5   
-}
-
-item_laptop = {
-    "id": "laptop",
-
-    "name": "laptop",
+    "name": "Gold Goblet",
 
     "description":
-    "It has seen better days. At least it has a WiFi card!",
+    """A Golden Goblet *TODO-- """,
 
-    "mass": 2080
+    "mass": 0   
 }
 
-item_money = {
-    "id": "money",
+item_goblet = {
+    "id": "goblet",
 
-    "name": "money",
+    "name": "Goblet",
 
     "description":
-    "This wad of cash is barely enough to pay your tuition fees.",
+    "A standard wooden goblet. It has split and is pretty much unusable.",
 
-    "mass": 1
+    "mass": 0
 }
 
-item_biscuits = {
-    "id": "biscuits",
+item_knife = {
+    "id": "knife",
 
-    "name": "a pack of biscuits",
+    "name": "Knife",
 
-    "description": "A pack of biscuits.",
+    "description":
+    "A hunting knife.",
 
-    "mass": 50
+    "mass": 0
 }
 
-item_pen = {
-    "id": "pen",
+item_oldboot = {
+    "id": "oldboot",
+
+    "name": "Old Boot",
+
+    "description": "A smelly old boot, gross!",
+
+    "mass": 0
+}
+
+item_sword = {
+    "id": "sword",
     
-    "name": "a pen",
+    "name": "Sword",
 
-    "description": "A basic ballpoint pen.",
+    "description": "A sharp steel shortsword.",
 
-    "mass": 20
+    "mass": 0
 }
 
-item_handbook = {
-    "id": "handbook",
+item_potionbook = {
+    "id": "potionbook",
     
-    "name": "a student handbook",
+    "name": "Book of Potions",
 
-    "description": "This student handbook explains everything. Seriously.",
+    "description": "A book of potions *TODO-- ",
 
-    "mass": 80
+    "mass": 0
 }

@@ -7,67 +7,7 @@ from items import *
 from gameparser import *
 from people import *
 
-
-def list_of_items(items):
-    """This function takes a list of items (see items.py for the definition) and
-    returns a comma-separated list of item names (as a string). For example:
-
-    >>> list_of_items([item_pen, item_handbook])
-    'a pen, a student handbook'
-
-    >>> list_of_items([item_id])
-    'id card'
-
-    >>> list_of_items([])
-    ''
-
-    >>> list_of_items([item_money, item_handbook, item_laptop])
-    'money, a student handbook, laptop'
-
-    """
-
-    item_str = ''
-    
-    for i in items :
-        item_str += i["name"] + ', '
-
-    if item_str != '' :
-        if item_str[-2] == "," :
-            item_str = item_str[:-2]
-
-    return item_str        
-
-
-def print_room_items(room):
-    """This function takes a room as an input and nicely displays a list of items
-    found in this room (followed by a blank line). If there are no items in
-    the room, nothing is printed. See map.py for the definition of a room, and
-    items.py for the definition of an item. This function uses list_of_items()
-    to produce a comma-separated list of item names. For example:
-
-    >>> print_room_items(rooms["Reception"])
-    There is a pack of biscuits, a student handbook here.
-    <BLANKLINE>
-
-    >>> print_room_items(rooms["Office"])
-    There is a pen here.
-    <BLANKLINE>
-
-    >>> print_room_items(rooms["Admins"])
-
-    (no output)
-
-    Note: <BLANKLINE> here means that doctest should expect a blank line.
-
-    """
-    
-    item_list = list_of_items(room["items"])
-
-    if item_list != "" :
-        item_list = "There is " + item_list + " here."
-        
-        print(item_list + "\n")
-    
+       
 
 def print_inventory_items(items):
     """This function takes a list of inventory items and displays it nicely, in a
@@ -142,15 +82,13 @@ def print_room(room):
     Note: <BLANKLINE> here means that doctest should expect a blank line.
     """
     # Display room name
+    print("_"*100)
     print()
-    print(room["name"].upper())
+    print("~ " + room["name"].upper() + " ~")
     print()
     # Display room description
     print(room["description"])
     print()
-
-    # Display items in room
-    print_room_items(room)
     
 
 def exit_leads_to(exits, direction):
@@ -167,66 +105,6 @@ def exit_leads_to(exits, direction):
     """
     return rooms[exits[direction]]["name"]
 
-
-def print_exit(direction, leads_to):
-    """This function prints a line of a menu of exits. It takes a direction (the
-    name of an exit) and the name of the room into which it leads (leads_to),
-    and should print a menu line in the following format:
-
-    GO <EXIT NAME UPPERCASE> to <where it leads>.
-
-    For example:
-    >>> print_exit("east", "you personal tutor's office")
-    GO EAST to you personal tutor's office.
-    >>> print_exit("south", "MJ and Simon's room")
-    GO SOUTH to MJ and Simon's room.
-    """
-    print("GO " + direction.upper() + " to " + leads_to + ".")
-
-
-def print_menu(exits, room_items, inv_items):
-    """This function displays the menu of available actions to the player. The
-    argument exits is a dictionary of exits as exemplified in map.py. The
-    arguments room_items and inv_items are the items lying around in the room
-    and carried by the player respectively. The menu should, for each exit,
-    call the function print_exit() to print the information about each exit in
-    the appropriate format. The room into which an exit leads is obtained
-    using the function exit_leads_to(). Then, it should print a list of commands
-    related to items: for each item in the room print
-
-    "TAKE <ITEM ID> to take <item name>."
-
-    and for each item in the inventory print
-
-    "DROP <ITEM ID> to drop <item name>."
-
-    For example, the menu of actions available at the Reception may look like this:
-
-    You can:
-    GO EAST to your personal tutor's office.
-    GO WEST to the parking lot.
-    GO SOUTH to MJ and Simon's room.
-    TAKE BISCUITS to take a pack of biscuits.
-    TAKE HANDBOOK to take a student handbook.
-    DROP ID to drop your id card.
-    DROP LAPTOP to drop your laptop.
-    DROP MONEY to drop your money.
-    What do you want to do?
-
-    """
-    print("You can:")
-    # Iterate over available exits
-    for direction in exits:
-        # Print the exit name and where it leads to
-        print_exit(direction, exit_leads_to(exits, direction))
-
-    for item in room_items :
-        print("TAKE " + item["id"].upper() + " to take " + item["name"] + ".")
-
-    for item in inv_items :
-        print("DROP " + item["id"].upper() + " to drop " + item["name"] + ".")
-        
-    print("What do you want to do?")
 
 
 def is_valid_exit(exits, chosen_exit):
@@ -337,7 +215,7 @@ def execute_talk(people_id):
         person_conv = current_room["people"][people_id]["conversation"]
 
         print(person_conv["opening"])
-        time.sleep(2)
+        input("Press ENTER to continue...")
         
         print("\nYou can ask...")
         qcount = 0
@@ -346,8 +224,6 @@ def execute_talk(people_id):
             
             for q in range(0, len(person_conv["questions"])) :
                 print("Input", str(q+1), "to ask '" + person_conv["questions"][q] + "'")
-                # print("%d) %s" % q+1, person_conv["questions"][q])
-
                 qcount += 1
 
             while True :
@@ -356,6 +232,7 @@ def execute_talk(people_id):
 
                     if qask <= qcount and qask > 0 :
                         print(person_conv["responses"][qask-1])
+                        input("Press ENTER to continue...")
                         break
 
                     else :
@@ -416,8 +293,7 @@ def menu(exits, room_items, inv_items):
 
     """
 
-    # Display menu
-    print_menu(exits, room_items, inv_items)
+    print("What do you want to do?")
 
     # Read player's input
     user_input = input("> ")
@@ -447,9 +323,6 @@ def move(exits, direction):
 
 # This is the entry point of our program
 def main():
-
-    print("Your task is to give biscuits to MJ and Simon,\nand find a lost pen to give to reception.")
-    time.sleep(2)
     
     # Main game loop
     while True:
