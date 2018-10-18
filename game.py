@@ -82,12 +82,12 @@ def print_room(room):
     Note: <BLANKLINE> here means that doctest should expect a blank line.
     """
     # Display room name
-    print("_"*100)
-    print()
+    print("_" * (len(room["name"]) + 4) + "\n")
     print("~ " + room["name"].upper() + " ~")
-    print()
+    print("_" * (len(room["name"]) + 4))
+    
     # Display room description
-    print(room["description"])
+    print("\n" + room["description"])
     print()
     
 
@@ -223,7 +223,7 @@ def execute_talk(people_id):
         if not person_conv["questions"] == [] :
             
             for q in range(0, len(person_conv["questions"])) :
-                print("Input", str(q+1), "to ask '" + person_conv["questions"][q] + "'")
+                print("Input %d to ask '%s'" % (q+1, person_conv["questions"][q]))
                 qcount += 1
 
             while True :
@@ -241,7 +241,6 @@ def execute_talk(people_id):
                 except :
                     print("Type a number from the list of questions.")
         
-
     else :
         print("This person isn't here.")
 
@@ -323,6 +322,9 @@ def move(exits, direction):
 
 # This is the entry point of our program
 def main():
+
+    print("Welcome!")
+    time.sleep(0.5)
     
     # Main game loop
     while True:
@@ -336,9 +338,6 @@ def main():
         # Execute the player's command
         execute_command(command)
         
-
-
-
 
 # Are we being run as a script? If so, run main().
 # '__main__' is the name of the scope in which top-level code executes.
