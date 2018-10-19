@@ -6,6 +6,8 @@ room_courtyard = {
 
     "description":
     """This is the courtyard. TODO ---""",
+    # exits/people/items in room will be added using functions in game.py
+    # (printed in full sentences)
 
     "exits": {"north": "Great Hall", "south": "Battlements"},
 

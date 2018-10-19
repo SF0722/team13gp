@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import time
+from random import randint
 
 from map import rooms
 from player import *
@@ -33,7 +34,26 @@ def print_inventory_items(items):
         inv_str = "You have " + inv_str + "."
         
         print(inv_str + "\n")
-            
+
+
+def print_exit(direction, leads_to):
+    """Prints available exits in full sentences."""
+    
+    if leads_to.lower() == "battlements" :
+        return "The " + leads_to.lower() + " are to the " + direction + ". "
+
+    else :
+        sentence_choice = randint(1, 3)
+
+        if sentence_choice == 1 :
+            return "The " + leads_to.lower() + " lies to the " + direction + ". "
+
+        elif sentence_choice == 2 :
+            return "To the " + direction + " is the " + leads_to.lower() + ". "
+
+        elif sentence_choice == 3 :
+            return "There is a " + leads_to.lower() + " to the " + direction + ". "
+    
 
 def print_room(room):
     """This function takes a room as an input and nicely displays its name
@@ -81,6 +101,7 @@ def print_room(room):
 
     Note: <BLANKLINE> here means that doctest should expect a blank line.
     """
+    
     # Display room name
     print("_" * (len(room["name"]) + 4) + "\n")
     print("~ " + room["name"].upper() + " ~")
@@ -89,7 +110,19 @@ def print_room(room):
     # Display room description
     print("\n" + room["description"])
     print()
+
+    # Print exits in full sentences
+    exit_str = ""
     
+    # Iterate over available exits
+    for direction in room["exits"]:
+        # Print the exit name and where it leads to
+        exit_str += print_exit(direction, exit_leads_to(room["exits"], direction))
+
+    if exit_str != "" :
+        print(exit_str)
+
+        
 
 def exit_leads_to(exits, direction):
     """This function takes a dictionary of exits and a direction (a particular
@@ -104,7 +137,6 @@ def exit_leads_to(exits, direction):
     'Reception'
     """
     return rooms[exits[direction]]["name"]
-
 
 
 def is_valid_exit(exits, chosen_exit):
