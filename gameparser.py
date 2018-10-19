@@ -27,7 +27,8 @@ def filter_words(words, skip_words):
     ['go', 'passage', 'south']
 
     """
-
+    #return list(filter(lambda x: not x in skip_words, words)) 
+    #could work quicker the filter splits the text them lamber examins it and add back to words list makes new list
     new_words = []
     
     for i in words :
