@@ -1,0 +1,35 @@
+The purpose of this document is to share and work on story and plot point. 
+
+Please use clear headings and sub heading
+
+
+
+OPENING OF GAME.
+
+	Court yard:
+the player enters the game in the court yard its the early morning the Keep is still.
+	
+options 
+go west battlements 
+go east anti-room 
+go south great-hall
+
+talk to lady of the court 
+
+
+
+
+
+	Great-hall:
+The player enters the great hall it’s untidy from the night before, there’s a scraggy old man with long untidy beard, snoring loudly, head back mouth wide open. The hat lying on the floor behind his is unimpressive, faded red velvet with what were once diligently embroidered gold stars and the word Wiz-ard.
+
+Options 
+go south thrown room
+go north court yard 
+go west anti-room
+
+talk to wizard
+
+
+
+	
