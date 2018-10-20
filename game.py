@@ -21,19 +21,34 @@ def print_inventory_items(items):
 
     """
 
-    inv_str = ''
+    '''inv_str = ''
+                
+                for i in items :
+                    inv_str += i["name"] + ', '
+            
+                if inv_str != '' :
+                    if inv_str[-2] == "," :
+                        inv_str = inv_str[:-2]
+            
+                if inv_str != "" :
+                    inv_str = "You have " + inv_str + "."
+                    
+                    print(inv_str + "\n")'''
+    a = []
+    if len(items) == 0:
+        print("You currnetly have no items")
+        #checks player has any items 
+    for i in items:
+        a.append(i["name"])
+        if len(a) == len(items):
+            break
+        #makes list of item names 
+    if len(a) > 0:
+        a = ", ".join(a)
+        print("You have %s.\n" % (a))
+        #prints items in order in inventorty  
     
-    for i in items :
-        inv_str += i["name"] + ', '
 
-    if inv_str != '' :
-        if inv_str[-2] == "," :
-            inv_str = inv_str[:-2]
-
-    if inv_str != "" :
-        inv_str = "You have " + inv_str + "."
-        
-        print(inv_str + "\n")
 
 
 def print_exit(direction, leads_to):
