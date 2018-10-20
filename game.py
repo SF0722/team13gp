@@ -11,38 +11,71 @@ from people import *
        
 
 def print_inventory_items(items):
-    """This function takes a list of inventory items and displays it nicely, in a
-    manner similar to print_room_items(). The only difference is in formatting:
-    print "You have ..." instead of "There is ... here.". For example:
+    """This function takes a list of inventory items and displays it in the format
+    shown in the doctest below.
 
-    >>> print_inventory_items(inventory)
-    You have id card, laptop, money.
-    <BLANKLINE>
+    >>> print_inventory_items([item_goldgoblet, item_goblet, item_oldboot, item_knife])
+    You have a chalice, along with a goblet, a boot and a knife.
+
+    >>> print_inventory_items([item_goldgoblet, item_goblet, item_oldboot])
+    You have a chalice, along with a goblet and a boot.
+
+    >>> print_inventory_items([item_goldgoblet])
+    You have a chalice.
 
     """
 
-    inv_str = ''
+    inv_str = ""    # concatenated string
+    inv_count = 0   # number of inventory items
     
     for i in items :
-        inv_str += i["name"] + ', '
+        inv_count += 1
 
-    if inv_str != '' :
-        if inv_str[-2] == "," :
-            inv_str = inv_str[:-2]
+        if inv_count == 1 :
+            # start of sentence
+            inv_str += "You have " + i["name"]
+
+        elif inv_count == 2 :
+            # connector phrase to additional item
+            inv_str += ", along with " + i["name"]
+            
+        else :
+            # from this point, all other items are separated with commas
+            inv_str += ", " + i["name"]
+            
 
     if inv_str != "" :
-        inv_str = "You have " + inv_str + "."
-        
-        print(inv_str + "\n")
+        if inv_count <= 2 :
+            # end sentence with full stop
+            inv_str += "."
+
+        else :
+            # for items separated by commas, an 'and' is inserted before the last item for fluid reading
+            inv_str = inv_str.rpartition(",")[0] + " and" + inv_str.rpartition(",")[2] + "."
+
+        print(inv_str)
+
 
 
 def print_exit(direction, leads_to):
-    """Prints available exits in full sentences."""
+    """Prints available exits in full sentences in one of three randomly-chosen formats.
+
+    For example:
+    The (place) lies to the (direction).      -or-
+    To the (direction) is the (place).        -or-
+    There is a (place) to the (direction).
+
+    The Battlements is the only plural room name. Therefore, the following format is used:
+    The battlements are to the (direction).
+
+    """
     
     if leads_to.lower() == "battlements" :
+        # special case for battlements room (see documentation)
         return "The " + leads_to.lower() + " are to the " + direction + ". "
 
     else :
+        # choose one of three formats
         sentence_choice = randint(1, 3)
 
         if sentence_choice == 1 :
@@ -53,6 +86,51 @@ def print_exit(direction, leads_to):
 
         elif sentence_choice == 3 :
             return "There is a " + leads_to.lower() + " to the " + direction + ". "
+
+
+
+def print_people(people):
+    """This function takes a list of people in the current room and displays it in the format
+    shown in the doctest below.
+
+    >>> print_people([people_soldier1, people_soldier2])
+    In the room, a soldier and a warrior are present.
+
+    >>> print_people([people_lady])
+    In the room, the lady of the court is present.
+
+    >>> print_people([people_king, people_lady, people_soldier2])
+    In the room, the king, the lady of the court and a warrior are present.
+
+    """
+
+    ppl_str = ""    # concatenated string
+    ppl_count = 0   # number of people in room
+    
+    for i in people :
+        ppl_count += 1
+
+        if ppl_count == 1 :
+            # start of sentence
+            ppl_str += "In the room, " + i["name"]
+            
+        else :
+            # from this point, all other items are separated with commas
+            ppl_str += ", " + i["name"]
+            
+
+    if ppl_str != "" :
+        
+        if ppl_count != 1 :
+            # for items separated by commas, an 'and' is inserted before the last item for fluid reading
+            ppl_str = ppl_str.rpartition(",")[0] + " and" + ppl_str.rpartition(",")[2] + " are present."
+
+        else :
+            # end sentence with full stop
+            ppl_str += " is present."
+            
+        print(ppl_str)
+        
     
 
 def print_room(room):
@@ -103,12 +181,14 @@ def print_room(room):
     """
     
     # Display room name
-    print("_" * (len(room["name"]) + 4) + "\n")
+    print("_" * (len(room["name"]) + 4))
+    print()
     print("~ " + room["name"].upper() + " ~")
     print("_" * (len(room["name"]) + 4))
     
     # Display room description
-    print("\n" + room["description"])
+    print()
+    print(room["description"])
     print()
 
     # Print exits in full sentences
@@ -157,6 +237,7 @@ def is_valid_exit(exits, chosen_exit):
     """
     return chosen_exit in exits
 
+
 def is_valid_person(people, chosen_person):
     """This function checks the chosen person is in the room.
 
@@ -180,9 +261,11 @@ def execute_go(direction):
     
     if is_valid_exit(current_room["exits"], direction) :
         current_room = move(current_room["exits"], direction)
+        return True
 
     else :
-        print("You cannot go there.")      
+        print("You cannot go there.")
+        return False
 
 
 def execute_take(item_id):
@@ -195,29 +278,23 @@ def execute_take(item_id):
     found_item = False
     
     for i in current_room["items"] :
+        
         if i["id"] == item_id :
+            inventory.append(i)
+            current_room["items"].remove(i)
 
-            # Check mass
-            mass = 0
-            
-            for x in inventory :
-                mass += x["mass"]
+            print("You now possess the " + item_id + ".")
+            print()
+            time.sleep(0.5)
 
-            mass += i["mass"]
+            found_item = True
+            break
 
-            if mass >= 2100 :
-                print("You are carrying too many heavy things.")
-
-            else :
-                inventory.append(i)
-                current_room["items"].remove(i)
-
-                found_item = True
-                break
         
     if found_item == False :
         print("You cannot take that.")  
     
+
 
 def execute_drop(item_id):
     """This function takes an item_id as an argument and moves this item from the
@@ -232,11 +309,16 @@ def execute_drop(item_id):
             current_room["items"].append(i)
             inventory.remove(i)
 
+            print("You no longer hold the " + item_id + ".")
+            print()
+            time.sleep(0.5)
+
             found_item = True
             break
         
     if found_item == False :
         print("You cannot drop that.")    
+
 
 
 def execute_talk(people_id):
@@ -276,11 +358,15 @@ def execute_talk(people_id):
     else :
         print("This person isn't here.")
 
+
+
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
     the command: "go", "take", or "drop"), executes either execute_go,
     execute_take, or execute_drop, supplying the second word as the argument.
+
+    Note: This function will only return False when the player changes room.
 
     """
 
@@ -289,7 +375,8 @@ def execute_command(command):
 
     if command[0] == "go":
         if len(command) > 1:
-            execute_go(command[1])
+            if execute_go(command[1]) :
+                return False      
         else:
             print("Go where?")
 
@@ -324,6 +411,7 @@ def menu(exits, room_items, inv_items):
 
     """
 
+    print()
     print("What do you want to do?")
 
     # Read player's input
@@ -352,6 +440,7 @@ def move(exits, direction):
     return rooms[exits[direction]]
 
 
+
 # This is the entry point of our program
 def main():
 
@@ -360,15 +449,19 @@ def main():
     
     # Main game loop
     while True:
+        
         # Display game status (room description, inventory etc.)
         print_room(current_room)
         print_inventory_items(inventory)
+        print_people(current_room["people"])
 
-        # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
-
-        # Execute the player's command
-        execute_command(command)
+        while True :
+            # Execute the player's command and only repeat the above few lines of
+            # code if the function returns True (see function documentation for more)
+            command = menu(current_room["exits"], current_room["items"], inventory)
+            
+            if execute_command(command) == False :
+                break
         
 
 # Are we being run as a script? If so, run main().

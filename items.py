@@ -1,7 +1,7 @@
 item_goldgoblet = {
-    "id": "goldgoblet",
+    "id": "chalice",
 
-    "name": "Gold Goblet",
+    "name": "a chalice",
 
     "description":
     """A Golden Goblet *TODO-- """,
@@ -12,7 +12,7 @@ item_goldgoblet = {
 item_goblet = {
     "id": "goblet",
 
-    "name": "Goblet",
+    "name": "a goblet",
 
     "description":
     "A standard wooden goblet. It has split and is pretty much unusable.",
@@ -23,7 +23,7 @@ item_goblet = {
 item_knife = {
     "id": "knife",
 
-    "name": "Knife",
+    "name": "a knife",
 
     "description":
     "A hunting knife.",
@@ -32,9 +32,9 @@ item_knife = {
 }
 
 item_oldboot = {
-    "id": "oldboot",
+    "id": "boot",
 
-    "name": "Old Boot",
+    "name": "a boot",
 
     "description": "A smelly old boot, gross!",
 
@@ -44,7 +44,7 @@ item_oldboot = {
 item_sword = {
     "id": "sword",
     
-    "name": "Sword",
+    "name": "a sword",
 
     "description": "A sharp steel shortsword.",
 
@@ -52,9 +52,9 @@ item_sword = {
 }
 
 item_potionbook = {
-    "id": "potionbook",
+    "id": "book",
     
-    "name": "Book of Potions",
+    "name": "a book",
 
     "description": "A book of potions *TODO-- ",
 

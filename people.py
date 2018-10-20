@@ -3,7 +3,7 @@ from conversations import *
 people_king = {
     "id": "king",
 
-    "name": "King",
+    "name": "the king",
 
     "description":
     """This is the king.""",
@@ -17,7 +17,7 @@ people_king = {
 people_viceroy = {
     "id": "viceroy",
 
-    "name": "Viceroy",
+    "name": "the viceroy",
 
     "description":
     """This is the viceroy.""",
@@ -31,7 +31,7 @@ people_viceroy = {
 people_lady = {
     "id": "lady",
 
-    "name": "Lady",
+    "name": "the lady of the court",
 
     "description":
     """This is the lady.""",
@@ -45,7 +45,7 @@ people_lady = {
 people_wizard = {
     "id": "wizard",
 
-    "name": "Wizard",
+    "name": "a wizard",
 
     "description":
     """This is the wizard.""",
@@ -57,9 +57,9 @@ people_wizard = {
 }
 
 people_soldier1 = {
-    "id": "soldier1",
+    "id": "soldier",
 
-    "name": "Soldier 1",
+    "name": "a soldier",
 
     "description":
     """This is soldier 1.""",
@@ -71,9 +71,9 @@ people_soldier1 = {
 }
 
 people_soldier2 = {
-    "id": "soldier2",
+    "id": "warrior",
 
-    "name": "Soldier 2",
+    "name": "a warrior",
 
     "description":
     """This is soldier 2.""",

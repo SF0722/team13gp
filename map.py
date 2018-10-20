@@ -13,7 +13,7 @@ room_courtyard = {
 
     "items": [],
 
-    "people": {"lady":people_lady}
+    "people": [people_lady]
 }
 
 room_greathall = {
@@ -26,7 +26,7 @@ room_greathall = {
 
     "items": [],
 
-    "people": {"wizard":people_wizard}
+    "people": [people_wizard]
 }
 
 room_throne = {
@@ -39,7 +39,7 @@ room_throne = {
 
     "items": [],
 
-    "people": {"king":people_king, "viceroy":people_viceroy}
+    "people": [people_king, people_viceroy]
 }
 
 room_battlements = {
@@ -52,7 +52,7 @@ room_battlements = {
 
     "items": [],
 
-    "people": {"soldier1":people_soldier1, "soldier2":people_soldier2}
+    "people": [people_soldier1, people_soldier2]
 }
 
 room_anti = {
@@ -65,7 +65,7 @@ room_anti = {
 
     "items": [],
 
-    "people": {}
+    "people": []
 }
 
 room_jail = {
@@ -78,7 +78,7 @@ room_jail = {
 
     "items": [],
 
-    "people": {}
+    "people": []
 }
 
 
