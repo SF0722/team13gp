@@ -137,47 +137,16 @@ def print_room(room):
     """This function takes a room as an input and nicely displays its name
     and description. The room argument is a dictionary with entries "name",
     "description" etc. (see map.py for the definition). The name of the room
-    is printed in all capitals and framed by blank lines. Then follows the
-    description of the room and a blank line again. If there are any items
-    in the room, the list of items is printed next followed by a blank line
-    (use print_room_items() for this). For example:
+    is printed in the following format...
 
-    >>> print_room(rooms["Office"])
-    <BLANKLINE>
-    THE GENERAL OFFICE
-    <BLANKLINE>
-    You are standing next to the cashier's till at
-    30-36 Newport Road. The cashier looks at you with hope
-    in their eyes. If you go west you can return to the
-    Queen's Buildings.
-    <BLANKLINE>
-    There is a pen here.
-    <BLANKLINE>
+    _____________                  _______________
 
-    >>> print_room(rooms["Reception"])
-    <BLANKLINE>
-    RECEPTION
-    <BLANKLINE>
-    You are in a maze of twisty little passages, all alike.
-    Next to you is the School of Computer Science and
-    Informatics reception. The receptionist, Matt Strangis,
-    seems to be playing an old school text-based adventure
-    game on his computer. There are corridors leading to the
-    south and east. The exit is to the west.
-    <BLANKLINE>
-    There is a pack of biscuits, a student handbook here.
-    <BLANKLINE>
+    ~ COURTYARD ~       -or-       ~ BATTLEMENTS ~
+    _____________                  _______________
+    
+    ... where the underscores match the length of the room name.
+    Other details such as the description of the room are printed afterwards.
 
-    >>> print_room(rooms["Admins"])
-    <BLANKLINE>
-    MJ AND SIMON'S ROOM
-    <BLANKLINE>
-    You are leaning agains the door of the systems managers'
-    room. Inside you notice Matt "MJ" John and Simon Jones. They
-    ignore you. To the north is the reception.
-    <BLANKLINE>
-
-    Note: <BLANKLINE> here means that doctest should expect a blank line.
     """
     
     # Display room name
@@ -200,6 +169,7 @@ def print_room(room):
         exit_str += print_exit(direction, exit_leads_to(room["exits"], direction))
 
     if exit_str != "" :
+        # Print the string
         print(exit_str)
 
         
@@ -209,14 +179,15 @@ def exit_leads_to(exits, direction):
     exit taken from this dictionary). It returns the name of the room into which
     this exit leads. For example:
 
-    >>> exit_leads_to(rooms["Reception"]["exits"], "south")
-    "MJ and Simon's room"
-    >>> exit_leads_to(rooms["Reception"]["exits"], "east")
-    "your personal tutor's office"
-    >>> exit_leads_to(rooms["Tutor"]["exits"], "west")
-    'Reception'
+    >>> exit_leads_to(rooms["Courtyard"]["exits"], "south")
+    "Battlements"
+    >>> exit_leads_to(rooms["Throne Room"]["exits"], "east")
+    "Great Hall"
+
     """
+    
     return rooms[exits[direction]]["name"]
+
 
 
 def is_valid_exit(exits, chosen_exit):
@@ -226,28 +197,32 @@ def is_valid_exit(exits, chosen_exit):
     the name of the exit has been normalised by the function normalise_input().
     For example:
 
-    >>> is_valid_exit(rooms["Reception"]["exits"], "south")
+    >>> is_valid_exit(rooms["Courtyard"]["exits"], "south")
     True
-    >>> is_valid_exit(rooms["Reception"]["exits"], "up")
+    >>> is_valid_exit(rooms["Throne Room"]["exits"], "up")
     False
-    >>> is_valid_exit(rooms["Parking"]["exits"], "west")
+    >>> is_valid_exit(rooms["Great Hall"]["exits"], "north")
     False
-    >>> is_valid_exit(rooms["Parking"]["exits"], "east")
+    >>> is_valid_exit(rooms["Anti Room"]["exits"], "south")
     True
     """
+    
     return chosen_exit in exits
+
 
 
 def is_valid_person(people, chosen_person):
     """This function checks the chosen person is in the room.
 
-    >>> is_valid_exit(rooms["Throne Room"]["people"], "king")
+    >>> is_valid_person(rooms["Throne Room"]["people"], "king")
     True
-    >>> is_valid_exit(rooms["Throne Room"]["people"], "lady")
+    >>> is_valid_person(rooms["Throne Room"]["people"], "lady")
     False
+    
     """
 
     return chosen_person in people
+
 
 
 def execute_go(direction):
@@ -266,6 +241,7 @@ def execute_go(direction):
     else :
         print("You cannot go there.")
         return False
+
 
 
 def execute_take(item_id):
@@ -363,11 +339,10 @@ def execute_talk(people_id):
 def execute_command(command):
     """This function takes a command (a list of words as returned by
     normalise_input) and, depending on the type of action (the first word of
-    the command: "go", "take", or "drop"), executes either execute_go,
-    execute_take, or execute_drop, supplying the second word as the argument.
+    the command), executes the relevant function, supplying the second word
+    as the argument.
 
     Note: This function will only return False when the player changes room.
-
     """
 
     if 0 == len(command):
@@ -402,6 +377,7 @@ def execute_command(command):
         print("This makes no sense.")
 
 
+
 def menu(exits, room_items, inv_items):
     """This function, given a dictionary of possible exits from a room, and a list
     of items found in the room and carried by the player, prints the menu of
@@ -423,16 +399,15 @@ def menu(exits, room_items, inv_items):
     return normalised_user_input
 
 
+
 def move(exits, direction):
     """This function returns the room into which the player will move if, from a
     dictionary "exits" of avaiable exits, they choose to move towards the exit
     with the name given by "direction". For example:
 
-    >>> move(rooms["Reception"]["exits"], "south") == rooms["Admins"]
+    >>> move(rooms["Courtyard"]["exits"], "south") == rooms["Battlements"]
     True
-    >>> move(rooms["Reception"]["exits"], "east") == rooms["Tutor"]
-    True
-    >>> move(rooms["Reception"]["exits"], "west") == rooms["Office"]
+    >>> move(rooms["Great Hall"]["exits"], "west") == rooms["Courtyard"]
     False
     """
 
@@ -464,9 +439,7 @@ def main():
                 break
         
 
-# Are we being run as a script? If so, run main().
-# '__main__' is the name of the scope in which top-level code executes.
-# See https://docs.python.org/3.4/library/__main__.html for explanation
+# If running as script, run main()
 if __name__ == "__main__":
     main()
 
