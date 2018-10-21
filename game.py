@@ -109,14 +109,14 @@ def print_people(people):
     
     for i in people :
         ppl_count += 1
-
+        
         if ppl_count == 1 :
             # start of sentence
-            ppl_str += "In the room, " + i["name"]
+            ppl_str += "In the room, " + current_room["people"][i]["name"]
             
         else :
             # from this point, all other items are separated with commas
-            ppl_str += ", " + i["name"]
+            ppl_str += ", " + current_room["people"][i]["name"]
             
 
     if ppl_str != "" :
@@ -300,7 +300,7 @@ def execute_drop(item_id):
 def execute_talk(people_id):
     """This function takes a people_id as an argument and begins a conversation
     with the person."""
-
+    
     if is_valid_person(current_room["people"], people_id) :
         person_conv = current_room["people"][people_id]["conversation"]
 
