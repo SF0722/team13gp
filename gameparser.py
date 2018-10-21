@@ -1,6 +1,6 @@
 import string
 
-# List of "unimportant" words (feel free to add more)
+# List of "unimportant" words to be disregarded
 skip_words = ['a', 'about', 'all', 'an', 'and', 'another', 'any', 'around', 'at',
               'bad', 'beautiful', 'been', 'better', 'big', 'can', 'could', 'every',
               'for', 'from', 'good', 'have', 'her', 'here', 'hers', 'his', 'how',
@@ -10,6 +10,7 @@ skip_words = ['a', 'about', 'all', 'an', 'and', 'another', 'any', 'around', 'at'
               'this', 'those', 'through', 'till', 'to', 'towards', 'until', 'us',
               'want', 'we', 'what', 'when', 'why', 'wish', 'with', 'would', 'will',
               'you', 'thank', 'thanks']
+
 
 
 def filter_words(words, skip_words):
@@ -27,15 +28,19 @@ def filter_words(words, skip_words):
     ['go', 'passage', 'south']
 
     """
-    #return list(filter(lambda x: not x in skip_words, words)) 
-    #could work quicker the filter splits the text them lamber examins it and add back to words list makes new list
-    new_words = []
-    
-    for i in words :
-        if i not in skip_words :
-            new_words.append(i)            
 
-    return new_words
+    # filter splits the text them lambda examines it and returns new list
+    return list(filter(lambda x: not x in skip_words, words))   
+
+##    PREVIOUS CODE:
+##    new_words = []
+##    
+##    for i in words :
+##        if i not in skip_words :
+##            new_words.append(i)            
+##
+##    return new_words
+
 
     
 def remove_punct(text):
@@ -58,6 +63,7 @@ def remove_punct(text):
             no_punct = no_punct + char
 
     return no_punct
+
 
 
 def normalise_input(user_input):
@@ -85,6 +91,7 @@ def normalise_input(user_input):
     ['go', 'passage', 'south']
 
     """
+    
     # Remove punctuation and convert to lower case
     no_punct = remove_punct(user_input).lower()
 
