@@ -3,7 +3,7 @@ conv_king = {
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I'm good.", "Henry"]
+    "responses": ["I'm good.", "Wattus Rex"] #Name of king of southern saxons (Sussex 692 - c. 700)
 
 }
 
@@ -12,7 +12,7 @@ conv_viceroy = {
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I'm good.", "Don"]
+    "responses": ["I'm good.", "Vetinari"]
 
 }
 
@@ -21,7 +21,7 @@ conv_wizard = {
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I'm good.", "Steve"]
+    "responses": ["I'm good.", "Gaius"]
 
 }
 
@@ -30,7 +30,7 @@ conv_lady = {
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I'm good.", "Marie"]
+    "responses": ["I'm good.", "Catherine"] #Name from Catherine of Aragon - One of henry's wives - got divorced.
 
 }
 
