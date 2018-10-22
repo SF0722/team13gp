@@ -419,7 +419,7 @@ def execute_command(command):
             print("Talk to whom?")
      
     elif command[0] == "use":
-        if len(command) > 1:
+        if len(command) > 2:
             execute_use(command[1], command[2])
         else:
             print("You cannot do that.")
