@@ -352,8 +352,11 @@ def execute_use(item_id, object_id):
 			found_object = True
 			b = i
 	if found_item == True and found_object == True:
-		funct_run = b["interaction"]
-		funct_run(item_id)
+		if b["interaction"] != None:
+			funct_run = b["interaction"]
+			funct_run(item_id)
+		else:
+			print("Nothing interesting happens.")
 	else:
 		print("You cannot do that")
 			
