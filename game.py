@@ -339,16 +339,20 @@ def execute_use(item_id, object_id):
 	found_item = False
 	found_object = False
 	a = None
+	b = None
 	for i in inventory :
 		if i["id"] == item_id :
 			found_item = True
+			a = i
+		if i["id"] == object_id :
+			found_object = True
+			b = i
 	for i in current_room["objects"]:
 		if i["id"] == object_id:
 			found_object = True
-			a = i
-	
+			b = i
 	if found_item == True and found_object == True:
-		funct_run = current_room["objects"][a]["interaction"]
+		funct_run = b["interaction"]
 		funct_run(item_id)
 	else:
 		print("You cannot do that")

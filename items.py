@@ -68,17 +68,43 @@ item_waterboot = {
 	
 	"description": "A smelly old boot, filled with water.",
 	
+	"mass": 0,
+	
+	"interaction": inter_waterboot
+	
+}
+
+item_hangover = {
+	"id": "hangover",
+	
+	"name": "a hangover cure",
+	
+	"description": """"A smelly old boot filled with some sort of concoction, 
+	supposedly it will cure hangovers.""",
+	
+	"mass": 0
+}
+
+
+item_ingredients = {
+	"id": "ingredients",
+	
+	"name": "some ingredients",
+	
+	"description": "A powerful mixture of herbs with a strong aroma.",
+	
 	"mass": 0
 	
 }
-	
+
 def inter_fountain(item_id):
 	from player import inventory
-	if item_id == "oldboot":
-		inventory.remove[item_oldboot]
-		inventory.append[item_waterboot]
+	if item_id == "boot":
+		inventory.remove(item_oldboot)
+		inventory.append(item_waterboot)
 		print("You fill the old boot up with water.")
-
+	else:
+		print("Nothing interesting happens")
 
 object_fountain = {
 	"id": "fountain",
@@ -87,3 +113,4 @@ object_fountain = {
 	
 	"interaction": inter_fountain
 }
+
