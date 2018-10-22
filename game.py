@@ -7,7 +7,6 @@ from player import *
 from items import *
 from gameparser import *
 from people import *
-
        
 
 def print_inventory_items(items):
@@ -269,7 +268,6 @@ def execute_take(item_id):
         
     if found_item == False :
         print("You cannot take that.")  
-    
 
 
 def execute_drop(item_id):
@@ -334,7 +332,27 @@ def execute_talk(people_id):
     else :
         print("This person isn't here.")
 
-
+def execute_use(item_id, object_id):
+	#check if item is in inventory
+	#check if object is in room
+	#run interaction code
+	found_item = False
+	found_object = False
+	a = None
+	for i in inventory :
+		if i["id"] == item_id :
+			found_item = True
+	for i in current_room["objects"]:
+		if i["id"] == object_id:
+			found_object = True
+			a = i
+	
+	if found_item == True and found_object == True:
+		funct_run = current_room["objects"][a]["interaction"]
+		funct_run(item_id)
+	else:
+		print("You cannot do that")
+			
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -372,7 +390,13 @@ def execute_command(command):
             execute_talk(command[1])
         else:
             print("Talk to whom?")
-            
+     
+    elif command[0] == "use":
+        if len(command) > 1:
+            execute_use(command[1], command[2])
+	
+        else:
+            print("You cannot do that.")
     else:
         print("This makes no sense.")
 

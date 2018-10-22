@@ -11,9 +11,11 @@ room_courtyard = {
 
     "exits": {"north": "Great Hall", "south": "Battlements"},
 
-    "items": [],
+    "items": [item_oldboot],
 
-    "people": {"lady":people_lady}
+    "people": {"lady":people_lady},
+	
+	"objects": [object_fountain]
 }
 
 room_greathall = {

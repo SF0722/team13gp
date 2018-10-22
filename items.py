@@ -60,3 +60,30 @@ item_potionbook = {
 
     "mass": 0
 }
+
+item_waterboot = {
+	"id": "boot",
+	
+	"name": "a boot full of water",
+	
+	"description": "A smelly old boot, filled with water.",
+	
+	"mass": 0
+	
+}
+	
+def inter_fountain(item_id):
+	from player import inventory
+	if item_id == "oldboot":
+		inventory.remove[item_oldboot]
+		inventory.append[item_waterboot]
+		print("You fill the old boot up with water.")
+
+
+object_fountain = {
+	"id": "fountain",
+	
+	"description": "An ornate water feature",
+	
+	"interaction": inter_fountain
+}
