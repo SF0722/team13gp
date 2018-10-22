@@ -6,7 +6,9 @@ item_goldgoblet = {
     "description":
     """A Golden Goblet *TODO-- """,
 
-    "mass": 0   
+    "mass": 0,
+	
+	"interaction": None
 }
 
 item_goblet = {
@@ -17,7 +19,9 @@ item_goblet = {
     "description":
     "A standard wooden goblet. It has split and is pretty much unusable.",
 
-    "mass": 0
+    "mass": 0,
+	
+	"interaction": None
 }
 
 item_knife = {
@@ -28,7 +32,9 @@ item_knife = {
     "description":
     "A hunting knife.",
 
-    "mass": 0
+    "mass": 0,
+	
+	"interaction": None
 }
 
 item_oldboot = {
@@ -62,7 +68,9 @@ item_potionbook = {
 
     "description": "A book of potions *TODO-- ",
 
-    "mass": 0
+    "mass": 0,
+	
+	"interaction": None
 }
 
 def inter_waterboot(item_id):
@@ -96,8 +104,8 @@ item_hangover = {
 	
 	"name": "a hangover cure",
 	
-	"description": """"A smelly old boot filled with some sort of concoction, 
-	supposedly it will cure hangovers.""",
+	"description": """A smelly old boot filled with some sort of concoction, 
+supposedly it will cure hangovers.""",
 	
 	"mass": 0,
 	
@@ -133,5 +141,65 @@ object_fountain = {
 	"description": "An ornate water feature",
 	
 	"interaction": inter_fountain
+}
+
+object_lady = {
+	"id": "lady",
+	
+	"description":
+    """This is the lady.""",
+	
+	"interaction": None
+	
+}
+
+object_wizard = {
+	"id": "wizard",
+	
+	"description":
+    """This is the wizard.""",
+	
+	"interaction": None
+	
+}
+
+object_king = {
+	"id": "king",
+	
+	"description":
+    """This is the king.""",
+	
+	"interaction": None
+	
+}
+
+object_viceroy = {
+	"id": "viceroy",
+	
+	"description":
+    """This is the viceroy.""",
+	
+	"interaction": None
+	
+}
+
+object_soldier1 = {
+	"id": "soldier",
+	
+	"description":
+    """This is the soldier.""",
+	
+	"interaction": None
+	
+}
+
+object_soldier2 = {
+	"id": "warrior",
+	
+	"description":
+    """This is the warrior.""",
+	
+	"interaction": None
+	
 }
 

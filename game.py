@@ -360,6 +360,26 @@ def execute_use(item_id, object_id):
 	else:
 		print("You cannot do that")
 			
+def execute_examine(object):
+	#check if object is in inventory/room
+	#return 'description' from the objects properties
+	#print the description
+	found_object = False
+	a = None
+	for i in inventory :
+		if i["id"] == object:
+			found_object = True
+			a = i
+	if found_object == False:
+		for i in current_room["objects"]:
+			if i["id"] == object:
+				found_object = True
+				a = i
+	if found_object:
+		print(a["description"])
+		
+	else:
+		print("You cannot do that.")
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -401,9 +421,14 @@ def execute_command(command):
     elif command[0] == "use":
         if len(command) > 1:
             execute_use(command[1], command[2])
-	
         else:
             print("You cannot do that.")
+			
+    elif command[0] == "examine":
+        if len(command) > 1:
+            execute_examine(command[1])
+        else:
+            print("Examine what?")
     else:
         print("This makes no sense.")
 
