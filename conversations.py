@@ -40,7 +40,7 @@ conv_soldier1 = {
 
     "questions": ["How are you?", "What is your name?", "Can I play a game?"],
 
-    "responses": ["I'm good.", "Alex", "Sure, I'll 'play dice' with you"]
+    "responses": ["I'm good.", "Alex", "Sure, I'll 'PLAY DICE' with you"]
 
 }
 

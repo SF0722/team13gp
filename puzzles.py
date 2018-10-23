@@ -90,4 +90,28 @@ def dice_game(): #code for celo game from https://code.sololearn.com/cjQ6V2Aj2rJ
     elif player == Soldier:
         print("DRAW!")
 
-puzzles = {"dice":dice_game}
+
+
+def riddle_lady():
+	"""A riddle is given and the player must answer correctly to progress"""
+	print("Are you ready to answer my riddle?")
+	print("'What's black when you buy it, red when you use it and white when you throw it away?'")
+	ans = input('> ')
+	from gameparser import normalise_input
+	ans2 = normalise_input(ans)
+	if ans2[0] == "coal" or ans2[0] == "charcoal":
+		print("CORRECT!")
+		print("""I wanted to test you, to see if you were worthy.
+Here are the ingredients for the hangover cure.""")
+		from player import inventory
+		from items import item_ingredients
+		inventory.append(item_ingredients)
+		from game import print_inventory_items
+		print_inventory_items(inventory)
+	else:
+		print("WRONG! Try again.")
+	
+	
+puzzles = {"dice":dice_game, "riddle":riddle_lady}
+	
+	

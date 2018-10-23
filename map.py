@@ -12,11 +12,11 @@ room_courtyard = {
 
     "exits": {"north": "Great Hall", "south": "Battlements"},
 
-    "items": [item_oldboot],
+    "items": [],
 
     "people": {"lady":people_lady, "catherine":people_lady},
 
-    "puzzles" : [],
+    "puzzles" : [riddle_lady],
 
     "objects": [object_fountain, object_lady]
 
@@ -67,7 +67,7 @@ room_battlements = {
 
     "exits": {"west": "Great Hall", "north": "Courtyard"},
 
-    "items": [],
+    "items": [item_oldboot],
 
     "people": {"soldier":people_soldier1, "warrior":people_soldier2},
 

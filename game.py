@@ -55,7 +55,7 @@ def print_inventory_items(items):
         print(inv_str)
  
     else :
-        print("You currnetly have no items.")
+        print("You currently have no items.")
         
 
 
@@ -438,7 +438,7 @@ def execute_command(command):
         else:
             print("Talk to whom?")
             
-    elif command[0] == "play":
+    elif command[0] == "play" or command[0] == "answer":
         if len(command) > 1:
             execute_play(command[1])
         else:

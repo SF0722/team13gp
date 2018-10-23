@@ -74,9 +74,9 @@ people_soldier1 = {
 }
 
 people_soldier2 = {
-    "id": "sargent",
+    "id": "Sergeant",
 
-    "name": "a warrior",
+    "name": "Sergeant",
 
     "description":
     """This is soldier 2.""",
