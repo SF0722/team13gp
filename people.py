@@ -31,12 +31,12 @@ people_viceroy = {
 people_lady = {
     "id": "lady",
 
-    "name": "Catheine",
+    "name": "Catherine",
 
-    "description":"""Catheine of Arogan,
-                     nobal lady visiting the kingdom from Arogan.
-                     she's weathly and well spoken, but,
-                     still speaks with a franco spanish accent""",
+    "description":"""Catherine of Arogan,
+                     a noble lady visiting the kingdom from Aragon.
+                     She is weathly and well-spoken, although she
+                     still speaks with a Franco-Spanish accent.""",
 
     "conversation": conv_lady,
 

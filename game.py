@@ -8,6 +8,7 @@ from items import *
 from gameparser import *
 from people import *
 
+
 def print_inventory_items(items):
     """This function takes a list of inventory items and displays it in the format
     shown in the doctest below.
@@ -23,19 +24,39 @@ def print_inventory_items(items):
 
     """
 
-    a = []
-    if len(items) == 0:
-        print("You currnetly have no items")
-        #checks player has any items 
-    for i in items:
-        a.append(i["name"])
-        if len(a) == len(items):
-            break
-        #makes list of item names 
-    if len(a) > 0:
-        a = ", ".join(a)
-        print("You have %s.\n" % (a))
-        #prints items in order in inventorty  
+    inv_str = ""    # concatenated string
+    inv_count = 0   # number of inventory items
+
+    for i in items :
+        inv_count += 1
+
+        if inv_count == 1 :
+            # start of sentence
+            inv_str += "You have " + i["name"]
+
+        elif inv_count == 2 :
+            # connector phrase to additional item
+            inv_str += ", along with " + i["name"]
+             
+        else :
+            # from this point, all other items are separated with commas
+            inv_str += ", " + i["name"]
+         
+
+    if inv_str != "" :
+        if inv_count <= 2 :
+            # end sentence with full stop
+            inv_str += "."
+
+        else :
+            # for items separated by commas, an 'and' is inserted before the last item for fluid reading
+            inv_str = inv_str.rpartition(",")[0] + " and" + inv_str.rpartition(",")[2] + "."
+
+        print(inv_str)
+ 
+    else :
+        print("You currnetly have no items.")
+        
 
 
 def print_exit(direction, leads_to):
@@ -89,16 +110,18 @@ def print_people(people):
     ppl_count = 0   # number of people in room
     
     for i in people :
-        ppl_count += 1
-        
-        if ppl_count == 1 :
-            # start of sentence
-            ppl_str += "In the room, " + current_room["people"][i]["name"]
+
+        if not i.lower() in ppl_str.lower() :
+            ppl_count += 1
             
-        else :
-            # from this point, all other items are separated with commas
-            ppl_str += ", " + current_room["people"][i]["name"]
-            
+            if ppl_count == 1 :
+                # start of sentence
+                ppl_str += "In the room, " + current_room["people"][i]["name"]
+                
+            else :
+                # from this point, all other items are separated with commas
+                ppl_str += ", " + current_room["people"][i]["name"]
+                
 
     if ppl_str != "" :
         
@@ -184,7 +207,7 @@ def is_valid_exit(exits, chosen_exit):
     False
     >>> is_valid_exit(rooms["Great Hall"]["exits"], "north")
     False
-    >>> is_valid_exit(rooms["Anti Room"]["exits"], "south")
+    >>> is_valid_exit(rooms["Anteroom"]["exits"], "south")
     True
     """
     
@@ -322,16 +345,18 @@ def execute_play(puzzle):
         if puzzles[puzzle] in current_room["puzzles"]:
             puzzles[puzzle]()
         else:
-            print("You cannot play that here")
+            print("You cannot play that here.")
     else:
-        print("That is not a game")
+        print("That is not a game.")
 
     
 
 def execute_use(item_id, object_id):
-	#check if item is in inventory
-	#check if object is in room
-	#run interaction code
+	"""Check if item is in inventory
+	check if object is in room
+	run interaction code
+	"""
+	
 	found_item = False
 	found_object = False
 	a = None
@@ -357,9 +382,10 @@ def execute_use(item_id, object_id):
 		print("You cannot do that")
 			
 def execute_examine(object):
-	#check if object is in inventory/room
-	#return 'description' from the objects properties
-	#print the description
+	"""Check if object is in inventory/room
+	and return 'description' from the objects properties
+	"""
+	
 	found_object = False
 	a = None
 	for i in inventory :
@@ -419,7 +445,7 @@ def execute_command(command):
         if len(command) > 1:
             execute_play(command[1])
         else:
-            print("play what?")
+            print("Play what?")
      
     elif command[0] == "use":
         if len(command) > 2:
