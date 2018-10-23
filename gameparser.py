@@ -29,17 +29,9 @@ def filter_words(words, skip_words):
 
     """
 
-    # filter splits the text them lambda examines it and returns new list
-    return list(filter(lambda x: not x in skip_words, words))   
-
-##    PREVIOUS CODE:
-##    new_words = []
-##    
-##    for i in words :
-##        if i not in skip_words :
-##            new_words.append(i)            
-##
-##    return new_words
+    return list(filter(lambda x: not x in skip_words, words)) 
+    #could work quicker the filter splits the text them lamber examins it and add back to words list makes new list
+    #new_words = []
 
 
     

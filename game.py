@@ -25,36 +25,19 @@ def print_inventory_items(items):
 
     """
 
-    inv_str = ""    # concatenated string
-    inv_count = 0   # number of inventory items
-    
-    for i in items :
-        inv_count += 1
-
-        if inv_count == 1 :
-            # start of sentence
-            inv_str += "You have " + i["name"]
-
-        elif inv_count == 2 :
-            # connector phrase to additional item
-            inv_str += ", along with " + i["name"]
-            
-        else :
-            # from this point, all other items are separated with commas
-            inv_str += ", " + i["name"]
-            
-
-    if inv_str != "" :
-        if inv_count <= 2 :
-            # end sentence with full stop
-            inv_str += "."
-
-        else :
-            # for items separated by commas, an 'and' is inserted before the last item for fluid reading
-            inv_str = inv_str.rpartition(",")[0] + " and" + inv_str.rpartition(",")[2] + "."
-
-        print(inv_str)
-
+    a = []
+    if len(items) == 0:
+        print("You currnetly have no items")
+        #checks player has any items 
+    for i in items:
+        a.append(i["name"])
+        if len(a) == len(items):
+            break
+        #makes list of item names 
+    if len(a) > 0:
+        a = ", ".join(a)
+        print("You have %s.\n" % (a))
+        #prints items in order in inventorty  
 
 
 def print_exit(direction, leads_to):

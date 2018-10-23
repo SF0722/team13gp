@@ -31,10 +31,12 @@ people_viceroy = {
 people_lady = {
     "id": "lady",
 
-    "name": "the lady of the court",
+    "name": "Catheine",
 
-    "description":
-    """This is the lady.""",
+    "description":"""Catheine of Arogan,
+                     nobal lady visiting the kingdom from Arogan.
+                     she's weathly and well spoken, but,
+                     still speaks with a franco spanish accent""",
 
     "conversation": conv_lady,
 
@@ -45,10 +47,9 @@ people_lady = {
 people_wizard = {
     "id": "wizard",
 
-    "name": "a wizard",
+    "name": "Gaius",
 
-    "description":
-    """This is the wizard.""",
+    "description": """""",
 
     "conversation": conv_wizard,
 
@@ -59,7 +60,7 @@ people_wizard = {
 people_soldier1 = {
     "id": "soldier",
 
-    "name": "a soldier",
+    "name": "Tom",
 
     "description":
     """This is soldier 1.""",
