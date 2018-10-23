@@ -4,4 +4,4 @@ from map import rooms
 inventory = [item_oldboot, item_sword, item_ingredients]
 
 # Start game at the reception
-current_room = rooms["Courtyard"]
+current_room = rooms["Jail"]

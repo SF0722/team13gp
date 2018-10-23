@@ -99,17 +99,19 @@ room_jail = {
     "name": "Jail",
 
     "description":
-    """This is the jail. TODO ---""",
+    """You are in a dank prison cell. The gate is locked tight and a guard is on duty outside.
+There is a bed in the corner. The room is in a poor state, which is no surprise. Bits of rock
+from the wall are falling away.""",
 
     "exits": {},
 
-    "items": [],
+    "items": [item_rock],
 
     "people": {},
 
     "puzzles" : [],
 	
-    "objects": []
+    "objects": [object_grate, object_bed, object_guard]
 
 }
 

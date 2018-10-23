@@ -473,13 +473,35 @@ def move(exits, direction):
     # Next room to go to
     return rooms[exits[direction]]
 
-
-
-# This is the entry point of our program
+def main_menu():
+	# This is the entry point of our program
+	print("""                                                                                                     
+     ##### ##                                /                                      /                
+  ######  /##   #                          #/                    #                #/                 
+ /#   /  / ##  ###                   #     ##                   ###               ##           #     
+/    /  /  ##   #                   ##     ##                    #                ##          ##     
+    /  /   /                        ##     ##                                     ##          ##     
+   ## ##  /   ###   ###  /###     ######## ##  /## ###  /###   ###       /###     ##  /##   ######## 
+   ## ## /     ###   ###/ #### / ########  ## / ### ###/ #### / ###     /  ###  / ## / ### ########  
+   ## ##/       ##    ##   ###/     ##     ##/   ### ##   ###/   ##    /    ###/  ##/   ###   ##     
+   ## ## ###    ##    ##            ##     ##     ## ##          ##   ##     ##   ##     ##   ##     
+   ## ##   ###  ##    ##            ##     ##     ## ##          ##   ##     ##   ##     ##   ##     
+   #  ##     ## ##    ##            ##     ##     ## ##          ##   ##     ##   ##     ##   ##     
+      /      ## ##    ##            ##     ##     ## ##          ##   ##     ##   ##     ##   ##     
+  /##/     ###  ##    ##            ##     ##     ## ##          ##   ##     ##   ##     ##   ##     
+ /  ########    ### / ###           ##     ##     ## ###         ### / ########   ##     ##   ##     
+/     ####       ##/   ###           ##     ##    ##  ###         ##/    ### ###   ##    ##    ##    
+#                                                 /                           ###        /           
+ ##                                              /                      ####   ###      /            
+                                                /                     /######  /#      /             
+                                               /                     /     ###/       /              """)
+											   
+	input("\n\n\n\t\t\t\t\tPress ENTER to play")
+	main()
+	
 def main():
 
-    print("Welcome!")
-    time.sleep(0.5)
+    time.sleep(1)
     
     # Main game loop
     while True:
@@ -500,5 +522,5 @@ def main():
 
 # If running as script, run main()
 if __name__ == "__main__":
-    main()
+    main_menu()
 
