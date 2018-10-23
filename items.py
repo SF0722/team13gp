@@ -139,6 +139,51 @@ item_ingredients = {
 	
 }
 
+def inter_smashgrate(item_id):
+	from player import inventory
+	from player import current_room
+	from map import rooms
+	global current_room
+	if item_id == "rock":
+		inventory.remove(item_rock)
+		print("""You smash the grating with the rock,
+a small hole is opened. You can see light outside...""")
+		input("Press ENTER to continue...")
+		print("""You crawl through the small space and your eyes
+struggle to adjust to the bright sunlight.""")
+		current_room = rooms["Courtyard"]
+		from game import main
+		main()
+item_rock = {
+	"id": "rock",
+	
+	"name": "a rock",
+	
+	"description": "a large rock",
+	
+	"mass": 0,
+	
+	"interaction": None
+}
+
+object_grate = {
+	"id": "grate",
+	
+	"description": "Some wrought iron grating in the wall",
+	
+	"interaction": inter_smashgrate
+
+}
+
+object_bed = {
+	"id": "bed",
+	
+	"description": """Quite a plush bed for a prison, although it would've been better 
+if it wasn't right next to a draughty wall grate""",
+
+	"interaction": None
+}
+
 def inter_fountain(item_id):
 	from player import inventory
 	if item_id == "boot" and item_oldboot in inventory:
@@ -211,6 +256,15 @@ object_soldier2 = {
 	
 	"description":
     """This is the warrior.""",
+	
+	"interaction": None
+}
+
+object_guard = {
+	"id": "guard",
+	
+	"description":
+	"""The guard is sound asleep, how cliché""",
 	
 	"interaction": None
 }
