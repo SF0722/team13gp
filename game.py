@@ -6,7 +6,7 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
-from people import *       
+from people import *
 
 def print_inventory_items(items):
     """This function takes a list of inventory items and displays it in the format
@@ -250,7 +250,6 @@ def execute_take(item_id):
         
     if found_item == False :
         print("You cannot take that.")  
-    
 
 
 def execute_drop(item_id):
@@ -315,6 +314,7 @@ def execute_talk(people_id):
     else :
         print("This person isn't here.")
 
+
 def execute_play(puzzle):
 
     if puzzle in puzzles:
@@ -327,7 +327,55 @@ def execute_play(puzzle):
         print("That is not a game")
 
     
-        
+
+def execute_use(item_id, object_id):
+	#check if item is in inventory
+	#check if object is in room
+	#run interaction code
+	found_item = False
+	found_object = False
+	a = None
+	b = None
+	for i in inventory :
+		if i["id"] == item_id :
+			found_item = True
+			a = i
+		if i["id"] == object_id :
+			found_object = True
+			b = i
+	for i in current_room["objects"]:
+		if i["id"] == object_id:
+			found_object = True
+			b = i
+	if found_item == True and found_object == True:
+		if b["interaction"] != None:
+			funct_run = b["interaction"]
+			funct_run(item_id)
+		else:
+			print("Nothing interesting happens.")
+	else:
+		print("You cannot do that")
+			
+def execute_examine(object):
+	#check if object is in inventory/room
+	#return 'description' from the objects properties
+	#print the description
+	found_object = False
+	a = None
+	for i in inventory :
+		if i["id"] == object:
+			found_object = True
+			a = i
+	if found_object == False:
+		for i in current_room["objects"]:
+			if i["id"] == object:
+				found_object = True
+				a = i
+	if found_object:
+		print(a["description"])
+		
+	else:
+		print("You cannot do that.")
 
 
 def execute_command(command):
@@ -372,7 +420,18 @@ def execute_command(command):
             execute_play(command[1])
         else:
             print("play what?")
-            
+     
+    elif command[0] == "use":
+        if len(command) > 2:
+            execute_use(command[1], command[2])
+        else:
+            print("You cannot do that.")
+			
+    elif command[0] == "examine":
+        if len(command) > 1:
+            execute_examine(command[1])
+        else:
+            print("Examine what?")
     else:
         print("This makes no sense.")
 

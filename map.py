@@ -12,12 +12,14 @@ room_courtyard = {
 
     "exits": {"north": "Great Hall", "south": "Battlements"},
 
-    "items": [],
+    "items": [item_oldboot],
 
     "people": {"lady":people_lady},
 
-    "puzzles" : []
-    
+    "puzzles" : [],
+
+    "objects": [object_fountain, object_lady]
+
 }
 
 room_greathall = {
@@ -32,7 +34,10 @@ room_greathall = {
 
     "people": {"wizard":people_wizard},
 
-    "puzzles" : []
+    "puzzles" : [],
+	
+    "objects": [object_wizard]
+
 }
 
 room_throne = {
@@ -45,9 +50,13 @@ room_throne = {
 
     "items": [],
 
-    "people": {"king":people_king, "viceroy":people_viceroy},
+    "people": {"king":people_king,
+               "viceroy":people_viceroy},
 
-    "puzzles" : []
+    "puzzles" : [],
+	
+    "objects": [object_king, object_viceroy]
+
 }
 
 room_battlements = {
@@ -62,7 +71,10 @@ room_battlements = {
 
     "people": {"soldier":people_soldier1, "warrior":people_soldier2},
 
-    "puzzles" : [dice_game]
+    "puzzles" : [dice_game],
+
+    "objects": [object_soldier1, object_soldier2]
+
 }
 
 room_anti = {
@@ -77,7 +89,10 @@ room_anti = {
 
     "people": {},
 
-    "puzzles" : []
+    "puzzles" : [],
+
+    "objects": []
+
 }
 
 room_jail = {
@@ -92,7 +107,10 @@ room_jail = {
 
     "people": {},
 
-    "puzzles" : []
+    "puzzles" : [],
+	
+    "objects": []
+
 }
 
 
