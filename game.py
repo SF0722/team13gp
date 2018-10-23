@@ -95,14 +95,11 @@ def print_people(people):
     """This function takes a list of people in the current room and displays it in the format
     shown in the doctest below.
 
-    >>> print_people([people_soldier1, people_soldier2])
-    In the room, a soldier and a warrior are present.
+    >>> print_people(['lady'])
+    In the room, Catherine is present.
 
-    >>> print_people([people_lady])
-    In the room, the lady of the court is present.
-
-    >>> print_people([people_king, people_lady, people_soldier2])
-    In the room, the king, the lady of the court and a warrior are present.
+    >>> print_people(['lady', 'catherine'])
+    In the room, Catherine is present.
 
     """
 
@@ -184,9 +181,9 @@ def exit_leads_to(exits, direction):
     this exit leads. For example:
 
     >>> exit_leads_to(rooms["Courtyard"]["exits"], "south")
-    "Battlements"
+    'Battlements'
     >>> exit_leads_to(rooms["Throne Room"]["exits"], "east")
-    "Great Hall"
+    'Great Hall'
 
     """
     
@@ -206,7 +203,7 @@ def is_valid_exit(exits, chosen_exit):
     >>> is_valid_exit(rooms["Throne Room"]["exits"], "up")
     False
     >>> is_valid_exit(rooms["Great Hall"]["exits"], "north")
-    False
+    True
     >>> is_valid_exit(rooms["Anteroom"]["exits"], "south")
     True
     """
