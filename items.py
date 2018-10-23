@@ -60,3 +60,14 @@ item_potionbook = {
 
     "mass": 0
 }
+
+item_money = {
+    "id": "money",
+    
+    "name": "a pile of money",
+
+    "description": "*TODO-- ",
+
+    "mass": 0
+}
+

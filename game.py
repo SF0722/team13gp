@@ -6,9 +6,7 @@ from map import rooms
 from player import *
 from items import *
 from gameparser import *
-from people import *
-
-       
+from people import *       
 
 def print_inventory_items(items):
     """This function takes a list of inventory items and displays it in the format
@@ -317,6 +315,19 @@ def execute_talk(people_id):
     else :
         print("This person isn't here.")
 
+def execute_play(puzzle):
+
+    if puzzle in puzzles:
+        
+        if puzzles[puzzle] in current_room["puzzles"]:
+            puzzles[puzzle]()
+        else:
+            print("You cannot play that here")
+    else:
+        print("That is not a game")
+
+    
+        
 
 
 def execute_command(command):
@@ -355,6 +366,12 @@ def execute_command(command):
             execute_talk(command[1])
         else:
             print("Talk to whom?")
+            
+    elif command[0] == "play":
+        if len(command) > 1:
+            execute_play(command[1])
+        else:
+            print("play what?")
             
     else:
         print("This makes no sense.")

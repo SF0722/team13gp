@@ -1,3 +1,4 @@
+from puzzles import *
 conv_king = {
     "opening": "...",
 
@@ -37,9 +38,9 @@ conv_lady = {
 conv_soldier1 = {
     "opening": "...",
 
-    "questions": ["How are you?", "What is your name?"],
+    "questions": ["How are you?", "What is your name?", "Can I play a game?"],
 
-    "responses": ["I'm good.", "Alex"]
+    "responses": ["I'm good.", "Alex", "Sure, I'll 'play dice' with you"]
 
 }
 

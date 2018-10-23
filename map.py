@@ -1,5 +1,6 @@
 from items import *
 from people import *
+from puzzles import *
 
 room_courtyard = {
     "name": "Courtyard",
@@ -13,7 +14,10 @@ room_courtyard = {
 
     "items": [],
 
-    "people": {"lady":people_lady}
+    "people": {"lady":people_lady},
+
+    "puzzles" : []
+    
 }
 
 room_greathall = {
@@ -26,7 +30,9 @@ room_greathall = {
 
     "items": [],
 
-    "people": {"wizard":people_wizard}
+    "people": {"wizard":people_wizard},
+
+    "puzzles" : []
 }
 
 room_throne = {
@@ -39,7 +45,9 @@ room_throne = {
 
     "items": [],
 
-    "people": {"king":people_king, "viceroy":people_viceroy}
+    "people": {"king":people_king, "viceroy":people_viceroy},
+
+    "puzzles" : []
 }
 
 room_battlements = {
@@ -52,7 +60,9 @@ room_battlements = {
 
     "items": [],
 
-    "people": {"soldier":people_soldier1, "warrior":people_soldier2}
+    "people": {"soldier":people_soldier1, "warrior":people_soldier2},
+
+    "puzzles" : [dice_game]
 }
 
 room_anti = {
@@ -65,7 +75,9 @@ room_anti = {
 
     "items": [],
 
-    "people": {}
+    "people": {},
+
+    "puzzles" : []
 }
 
 room_jail = {
@@ -78,7 +90,9 @@ room_jail = {
 
     "items": [],
 
-    "people": {}
+    "people": {},
+
+    "puzzles" : []
 }
 
 
