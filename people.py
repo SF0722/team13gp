@@ -60,12 +60,15 @@ he sits mouth open with his head back, snoring loudly.""",
 }
 
 people_soldier1 = {
-    "id": "Captain ",
+    "id": "squaddi",
 
     "name": "Thomas",
 
     "description":
-    """This is soldier 1.""",
+    """A young fresh faced boy uncorruped. probibily?!
+    untill now now the older soldiers corrupted by this rotten kingdon
+    will soon make him in their own image;
+    untidy undisapliend and cowardly.""",
 
     "conversation": conv_soldier1,
 
@@ -79,7 +82,8 @@ people_soldier2 = {
     "name": "Sergeant",
 
     "description":
-    """This is soldier 2.""",
+    """A sneaky looking man that would sooner sell his
+    faded tunic if he had anything else to spill mead on.""",
 
     "conversation": conv_soldier2,
 
