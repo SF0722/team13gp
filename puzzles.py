@@ -1,7 +1,7 @@
 
 
 import random
-def dice_game(): #code for celo game from https://code.sololearn.com/cjQ6V2Aj2rJk/#py
+def dice_game(): 
     """Plays a game of dice, using code from:
     https://code.sololearn.com/cjQ6V2Aj2rJk/#py
     by user PacketStorm, accessed 22/10/2018
