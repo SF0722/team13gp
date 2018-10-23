@@ -47,7 +47,7 @@ still speaks with a Franco-Spanish accent.""",
 people_wizard = {
     "id": "wizard",
 
-    "name": "Gaius",
+    "name": "a wizard",
 
     "description": """Clearly only a shadow of his former self,
 hungover or still possibly drunk from the night before,

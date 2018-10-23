@@ -1,3 +1,4 @@
+from updater import *
 item_goldgoblet = {
     "id": "chalice",
 
@@ -17,7 +18,7 @@ item_goblet = {
     "name": "a goblet",
 
     "description":
-    "A standard wooden goblet. It has split and is pretty much unusable.",
+    "A standard wooden goblet.",
 
     "mass": 0,
 	
@@ -37,6 +38,16 @@ item_knife = {
 	"interaction": None
 }
 
+def inter_decantcure(item_id):
+	from player import inventory
+	if (item_id == "boot" or item_id == "goblet") and (item_oldboot in inventory and item_hangover2 in inventory):
+		print("You decant the contents of the goblet into the old boot")
+		inventory.remove(item_hangover2)
+		inventory.remove(item_oldboot)
+		inventory.append(item_hangover)
+	else:
+		print("Nothing interesting happens")
+
 item_oldboot = {
     "id": "boot",
 
@@ -46,7 +57,7 @@ item_oldboot = {
 
     "mass": 0,
 	
-	"interaction": None
+	"interaction": inter_decantcure
 }
 
 item_sword = {
@@ -86,6 +97,31 @@ item_money = {
 
 }
 
+def inter_watergoblet(item_id):
+	from player import inventory
+	if item_id == "ingredients" or item_id == "goblet":
+		if item_watergoblet in inventory:
+			inventory.remove(item_ingredients)
+			inventory.remove(item_watergoblet)
+			inventory.append(item_hangover2)
+			print("You mix the ingredients in the wooden goblet full of water.")
+		else:
+			print("Nothing interesting happens.")
+	else:
+		print("Nothing interesting happens")
+		
+item_watergoblet = {
+	"id": "goblet",
+	
+	"name": "a goblet full of water",
+	
+	"description": "A typical wooden goblet, filled with water.",
+	
+	"mass": 0,
+	
+	"interaction": inter_watergoblet
+}
+
 def inter_waterboot(item_id):
 	from player import inventory
 	if item_id == "ingredients" or item_id == "boot":
@@ -113,9 +149,9 @@ item_waterboot = {
 }
 
 item_hangover = {
-	"id": "hangover",
+	"id": "boot",
 	
-	"name": "a hangover cure",
+	"name": "a hangover cure in a boot",
 	
 	"description": """A smelly old boot filled with some sort of concoction, 
 supposedly it will cure hangovers.""",
@@ -125,6 +161,18 @@ supposedly it will cure hangovers.""",
 	"interaction": None
 }
 
+item_hangover2 = {
+	"id": "goblet",
+	
+	"name": "a hangover cure in a goblet",
+	
+	"description": """A simple wooden goblet filled with some sort of concoction,
+supposedly it will cure hangovers.""",
+
+	"mass": 0,
+	
+	"interaction": inter_decantcure
+}
 
 item_ingredients = {
 	"id": "ingredients",
@@ -190,6 +238,10 @@ def inter_fountain(item_id):
 		inventory.remove(item_oldboot)
 		inventory.append(item_waterboot)
 		print("You fill the old boot up with water.")
+	elif item_id == "goblet":
+		inventory.remove(item_goblet)
+		inventory.append(item_watergoblet)
+		print("You fill the wooden goblet up with water.")
 	else:
 		print("Nothing interesting happens")
 
@@ -201,23 +253,55 @@ object_fountain = {
 	"interaction": inter_fountain
 }
 
-object_lady = {
-	"id": "lady",
+object_flowerpot = {
+	"id": "flowerpot",
 	
-	"description":
-    """This is the lady.""",
+	"description": "A smart ceramic flowerpot with some bright flowers in",
 	
 	"interaction": None
-	
 }
+
+object_lady = {
+	"id": "catherine",
+	
+	"description":
+    """Catherine of Aragon,
+a noble lady from a different land.
+She is weathly and well-spoken, although she
+still speaks with a Franco-Spanish accent.""",
+	
+	"interaction": None
+}
+
+def inter_cure(item_id):
+	from player import inventory
+	if item_id == "boot" and item_hangover in inventory:
+		from conversations import conv_wizard
+		print("You give the smelly old boot containing a hangover cure to the wizard.")
+		print("The wizard sniffs it curiously. Then proceeds to drink the contents...\n")
+		inventory.remove(item_hangover)
+		print("""The wizard seems to recover from his hangover instantly!
+If only you knew what ingredients the lady used to make such a potion.""")
+		conv_wizard["opening"] = people_conversations["wizard_cured"]
+		conv_wizard["questions"] = people_conversations["Qwizard_cured"]
+		conv_wizard["responses"] = people_conversations["Rwizard_cured"]
+	elif item_id == "goblet" and item_hangover2 in inventory:
+		print("*The wizard bats the goblet away*")
+		print("$!&@*! I will never drink from such a thing of my own will!")
+		print("(Looks like you'll need to find something else to contain the cure)")
+	else:
+		print("Nothing interesting happens")
+
 
 object_wizard = {
 	"id": "wizard",
 	
 	"description":
-    """This is the wizard.""",
+    """Clearly only a shadow of his former self,
+hungover or still possibly drunk from the night before,
+he sits mouth open with his head back, snoring loudly.""",
 	
-	"interaction": None
+	"interaction": inter_cure
 	
 }
 

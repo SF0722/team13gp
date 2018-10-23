@@ -102,7 +102,8 @@ def riddle_lady():
 	if ans2[0] == "coal" or ans2[0] == "charcoal":
 		print("CORRECT!")
 		print("""I wanted to test you, to see if you were worthy.
-Here are the ingredients for the hangover cure.""")
+Here are some ingredients for a hangover cure. You'll definitely find this useful.
+They need to be mixed with water, so you'll need to find something else to contain it.""")
 		from player import inventory
 		from items import item_ingredients
 		inventory.append(item_ingredients)

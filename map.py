@@ -7,11 +7,10 @@ room_courtyard = {
 
     "description":
     """A square courtyard swept clean
-and filled with the sweet smell of jasmine. 
-No furniture to speak of just:
-An ornate door to the grand hall
-and an opening that takes you up a wide set 
-of spiral stairs to the battlements.
+and filled with the sweet smell of jasmine.
+In the centre lies a large water fountain.
+No furniture to speak of just an ornate door to the grand hall
+and an opening that takes you up a wide set of spiral stairs to the battlements.
 There are flower pots on the wall with beautiful foxgloves growing in them.
     """,
     # exits/people/items in room will be added using functions in game.py
@@ -34,6 +33,7 @@ room_greathall = {
 
     "description":
    	 """A Grand hall, with fine tapestries and paintings on every wall.
+On a shelf near the door lies a single wooden goblet.
 A straight oak table stands in centre of the hall
 with many chairs. At the head of the table,
 a grand gilded chair dominates the room.
@@ -42,9 +42,9 @@ next to a fireplace, where a handful of coals lie""",
 
     "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anteroom"},
 
-    "items": [],
+    "items": [item_goblet],
 
-    "people": {"wizard":people_wizard, "gaius":people_wizard},
+    "people": {"wizard":people_wizard},
 
     "puzzles" : [],
 	
@@ -77,7 +77,8 @@ room_battlements = {
     "description":
     """The wind swept and exposed battlements.
 beyond the grey horizon the enemy may lie in waiting.
-The soldiers seem more interested in who'll throw the next combo in their dice game.""",
+The few soldiers on duty seem more interested in who'll throw the next combo in their dice game.
+There is a single old boot in the middle of the walkway which seems odd to you.""",
 
     "exits": {"west": "Great Hall", "north": "Courtyard"},
 

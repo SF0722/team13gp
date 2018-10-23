@@ -7,6 +7,7 @@ from player import *
 from items import *
 from gameparser import *
 from people import *
+from updater import *
 
 
 def print_inventory_items(items):
@@ -81,10 +82,10 @@ def print_exit(direction, leads_to):
         sentence_choice = randint(1, 3)
 
         if sentence_choice == 1 :
-            return "The " + leads_to.lower() + " lies to the " + direction + ".\n "
+            return "The " + leads_to.lower() + " lies to the " + direction + ".\n"
 
         elif sentence_choice == 2 :
-            return "To the " + direction + " is the " + leads_to.lower() + ".\n "
+            return "To the " + direction + " is the " + leads_to.lower() + ".\n"
 
         elif sentence_choice == 3 :
             return "There is a " + leads_to.lower() + " to the " + direction + ".\n"
@@ -265,6 +266,8 @@ def execute_take(item_id):
             time.sleep(0.5)
 
             found_item = True
+            if item_id in item_room_descriptions:
+                current_room["description"] = item_room_descriptions[item_id]
             break
 
         
