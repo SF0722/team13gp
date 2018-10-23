@@ -26,7 +26,11 @@ room_greathall = {
     "name": "Great Hall",
 
     "description":
-    """This is the great hall. TODO ---""",
+    """A Grand hall, with fine tapestries and paintings on every wall,
+    a strait oak table stands in centre of the hall,
+    with many chairs. At the head if the table,
+    a grand gilded chair dominates the room.
+    slumped head back in another sleeps a raggedy old man""",
 
     "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anti Room"},
 

@@ -49,7 +49,7 @@ people_wizard = {
 
     "name": "Gaius",
 
-    "description": """clearly only a reflection of his former self,
+    "description": """Clearly only a reflection of his former self,
     				hungover or still possibly drunk from the night before,
     				he sits mouth open with his head back, snoring loudly.""",
 
