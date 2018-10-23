@@ -6,7 +6,15 @@ room_courtyard = {
     "name": "Courtyard",
 
     "description":
-    """This is the courtyard. TODO ---""",
+    """A square courtyard swept clean,
+    and filled with the sweet smell of jazmin. 
+    No fernature to speak of just:
+    A ornait door to the grand hall,
+    and an opening that
+    takes you up a wide set of spieal stairs
+    to the battlements.
+    there are flower pots on the wall with beutifull foxgloves growing in them.
+    """,
     # exits/people/items in room will be added using functions in game.py
     # (printed in full sentences)
 
@@ -18,7 +26,7 @@ room_courtyard = {
 
     "puzzles" : [],
 
-    "objects": [object_fountain, object_lady]
+    "objects": [object_fountain, object_lady, object_flowerpot]
 
 }
 
@@ -26,11 +34,12 @@ room_greathall = {
     "name": "Great Hall",
 
     "description":
-    """A Grand hall, with fine tapestries and paintings on every wall,
-    a strait oak table stands in centre of the hall,
-    with many chairs. At the head if the table,
-    a grand gilded chair dominates the room.
-    slumped head back in another sleeps a raggedy old man""",
+   	 """A Grand hall, with fine tapestries and paintings on every wall,
+    	a strait oak table stands in centre of the hall,
+    	with many chairs. At the head if the table,
+    	a grand gilded chair dominates the room.
+    	slumped head back in another sleeps a raggedy old man.
+    	The fire a hanfull of coals""",
 
     "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anti Room"},
 
@@ -103,7 +112,9 @@ room_jail = {
     "name": "Jail",
 
     "description":
-    """This is the jail. TODO ---""",
+    """The wind swept and exposed battlements.
+    beyond the grey horizon the enemy may lie in waiting.
+    Who seem more intersted in who'll throw the next combo.""",
 
     "exits": {},
 

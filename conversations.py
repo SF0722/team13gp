@@ -1,37 +1,43 @@
 from puzzles import *
 conv_king = {
-    "opening": "...",
+    "opening": "",
 
-    "questions": ["How are you?", "What is your name?"],
+    "questions": [],
 
-    "responses": ["I'm good.", "Wattus Rex"] #Name of king of southern saxons (Sussex 692 - c. 700)
+    "responses": [] #Name of king of southern saxons (Sussex 692 - c. 700)
 
 }
 
 conv_viceroy = {
-    "opening": "...",
+    "opening": """if your per capita bean counting trouples you, CLARK,
+    			a decapita can be arranged""",
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I'm good.", "Vetinari"]
+    "responses": ["As I said before CLark"]
 
 }
 
 conv_wizard = {
-    "opening": "...",
+    "opening": "Touch my glarse and I'll...@#*%!",
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I'm good.", "Gaius"]
+    "responses": [, ] #
 
 }
 
 conv_lady = {
-    "opening": "...",
+    "opening": """Bon dia, CLarck, you rise early,
+    """,
 
-    "questions": ["How are you?", "What is your name?"],
+    "questions": ["Have we met before?", ],
 
-    "responses": ["I'm good.", "Catherine"] #Name from Catherine of Aragon - One of henry's wives - got divorced.
+    "responses": ["""I believe you'd recall if we had,
+    				I am called Catherine, I am from Aragon.
+    				My father sent me to this island, for what? 
+    				I not sure, the king has no interest in women,
+    				and his Viceroy is nothing more than a merchant of lies""", "I wont answer such a question from you"] #Name from Catherine of Aragon - One of henry's wives - got divorced.
 
 }
 
