@@ -13,8 +13,8 @@ room_courtyard = {
     and an opening that
     takes you up a wide set of spieal stairs
     to the battlements.
-    there are flower pots on the wall with beutifull foxgloves growing in them.
-    """,
+    there are flower pots on the wall with beutifull
+    foxgloves growing in them.""",
     # exits/people/items in room will be added using functions in game.py
     # (printed in full sentences)
 
@@ -34,12 +34,13 @@ room_greathall = {
     "name": "Great Hall",
 
     "description":
-   	 """A Grand hall, with fine tapestries and paintings on every wall,
+   	 """A Grand hall, with fine tapestries,
+        and, paintings on every wall,
     	a strait oak table stands in centre of the hall,
     	with many chairs. At the head if the table,
     	a grand gilded chair dominates the room.
-    	slumped head back in another sleeps a raggedy old man.
-    	The fire a hanfull of coals""",
+    	Slumped head back in another sleeps a raggedy old man.
+    	The fire a hanfull of red glowing coals""",
 
     "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anti Room"},
 
@@ -57,7 +58,10 @@ room_throne = {
     "name": "Throne Room",
 
     "description":
-    """This is the throne room. TODO ---""",
+        """A long room which has the feel of a church.
+           eluminated in a pinkish hue from highset narrow windows
+           that radiates onto the child like King slumped,
+           dispondent on his lonley thrown.""",
 
     "exits": {"east": "Great Hall"},
 
@@ -94,7 +98,10 @@ room_anti = {
     "name": "Anti Room",
 
     "description":
-    """This is the anti room. TODO ---""",
+    """Nothing of interst in here, just,
+       a dark room eluminated by,
+       a single candels, 
+       with a harth full of white ashes""",
 
     "exits": {"south": "Great Hall"},
 
