@@ -3,7 +3,7 @@ from conversations import *
 people_king = {
     "id": "king",
 
-    "name": "the king",
+    "name": "Wattus Rex",
 
     "description":
     """This is the king.""",
@@ -33,10 +33,10 @@ people_lady = {
 
     "name": "Catherine",
 
-    "description":"""Catherine of Arogan,
-                     a noble lady visiting the kingdom from Aragon.
-                     She is weathly and well-spoken, although she
-                     still speaks with a Franco-Spanish accent.""",
+    "description":"""Catherine of Aragon,
+a noble lady from a different land.
+She is weathly and well-spoken, although she
+still speaks with a Franco-Spanish accent.""",
 
     "conversation": conv_lady,
 
@@ -49,9 +49,9 @@ people_wizard = {
 
     "name": "Gaius",
 
-    "description": """clearly only a reflection of his former self,
-    				hungover or still possibly drunk from the night before,
-    				he sits mouth open with his head back, snoring loudly.""",
+    "description": """Clearly only a shadow of his former self,
+hungover or still possibly drunk from the night before,
+he sits mouth open with his head back, snoring loudly.""",
 
     "conversation": conv_wizard,
 
@@ -62,7 +62,7 @@ people_wizard = {
 people_soldier1 = {
     "id": "Captain ",
 
-    "name": "Tom",
+    "name": "Thomas",
 
     "description":
     """This is soldier 1.""",

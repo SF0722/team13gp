@@ -6,7 +6,14 @@ room_courtyard = {
     "name": "Courtyard",
 
     "description":
-    """This is the courtyard. TODO ---""",
+    """A square courtyard swept clean
+and filled with the sweet smell of jasmine. 
+No furniture to speak of just:
+An ornate door to the grand hall
+and an opening that takes you up a wide set 
+of spiral stairs to the battlements.
+There are flower pots on the wall with beautiful foxgloves growing in them.
+    """,
     # exits/people/items in room will be added using functions in game.py
     # (printed in full sentences)
 
@@ -18,7 +25,7 @@ room_courtyard = {
 
     "puzzles" : [riddle_lady],
 
-    "objects": [object_fountain, object_lady]
+    "objects": [object_fountain, object_lady, object_flowerpot]
 
 }
 
@@ -26,7 +33,12 @@ room_greathall = {
     "name": "Great Hall",
 
     "description":
-    """This is the great hall. TODO ---""",
+   	 """A Grand hall, with fine tapestries and paintings on every wall.
+A straight oak table stands in centre of the hall
+with many chairs. At the head of the table,
+a grand gilded chair dominates the room.
+Slumped head back in another sleeps a raggedy old man.
+next to a fireplace, where a handful of coals lie""",
 
     "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anteroom"},
 
@@ -63,7 +75,9 @@ room_battlements = {
     "name": "Battlements",
 
     "description":
-    """These are the battlements. TODO ---""",
+    """The wind swept and exposed battlements.
+beyond the grey horizon the enemy may lie in waiting.
+The soldiers seem more interested in who'll throw the next combo in their dice game.""",
 
     "exits": {"west": "Great Hall", "north": "Courtyard"},
 
@@ -101,7 +115,7 @@ room_jail = {
     "description":
     """You are in a dank prison cell. The gate is locked tight and a guard is on duty outside.
 There is a bed in the corner. The room is in a poor state, which is no surprise. Bits of rock
-from the wall are falling away.""",
+from the wall are falling away onto the floor.""",
 
     "exits": {},
 

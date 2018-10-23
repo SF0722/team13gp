@@ -71,7 +71,7 @@ def print_exit(direction, leads_to):
     The battlements are to the (direction).
 
     """
-    
+    #needs to be reduxed 
     if leads_to.lower() == "battlements" :
         # special case for battlements room (see documentation)
         return "The " + leads_to.lower() + " are to the " + direction + ". "
@@ -81,13 +81,13 @@ def print_exit(direction, leads_to):
         sentence_choice = randint(1, 3)
 
         if sentence_choice == 1 :
-            return "The " + leads_to.lower() + " lies to the " + direction + ". "
+            return "The " + leads_to.lower() + " lies to the " + direction + ".\n "
 
         elif sentence_choice == 2 :
-            return "To the " + direction + " is the " + leads_to.lower() + ". "
+            return "To the " + direction + " is the " + leads_to.lower() + ".\n "
 
         elif sentence_choice == 3 :
-            return "There is a " + leads_to.lower() + " to the " + direction + ". "
+            return "There is a " + leads_to.lower() + " to the " + direction + ".\n"
 
 
 
