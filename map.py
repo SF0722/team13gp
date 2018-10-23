@@ -14,7 +14,7 @@ room_courtyard = {
 
     "items": [item_oldboot],
 
-    "people": {"lady":people_lady},
+    "people": {"lady":people_lady, "catherine":people_lady},
 
     "puzzles" : [],
 
@@ -28,11 +28,11 @@ room_greathall = {
     "description":
     """This is the great hall. TODO ---""",
 
-    "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anti Room"},
+    "exits": {"west": "Throne Room", "south": "Courtyard", "east": "Battlements", "north": "Anteroom"},
 
     "items": [],
 
-    "people": {"wizard":people_wizard},
+    "people": {"wizard":people_wizard, "gaius":people_wizard},
 
     "puzzles" : [],
 	
@@ -77,11 +77,11 @@ room_battlements = {
 
 }
 
-room_anti = {
-    "name": "Anti Room",
+room_ante = {
+    "name": "Anteroom",
 
     "description":
-    """This is the anti room. TODO ---""",
+    """This is the anteroom. TODO ---""",
 
     "exits": {"south": "Great Hall"},
 
@@ -121,6 +121,6 @@ rooms = {
     "Great Hall": room_greathall,
     "Throne Room": room_throne,
     "Battlements": room_battlements,
-    "Anti Room": room_anti,
+    "Anteroom": room_ante,
     "Jail": room_jail
 }
