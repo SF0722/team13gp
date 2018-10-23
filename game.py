@@ -24,40 +24,22 @@ def print_inventory_items(items):
     You have a chalice.
 
     """
+    if len(items) < 1:
+        print("You have nothing in your inventory")    
+    else:
+        a = []
+        for i in items:
+            a.append(i["name"])
+            if len(a) ==len(items):
+                break
+        if len(a) > 1:
+            
+            print("You have " + ", ".join(a) + " in your inventory") 
+        else:
+            print("You have %s" % "".join(a)) 
+    
 
-    inv_str = ""    # concatenated string
-    inv_count = 0   # number of inventory items
-
-    for i in items :
-        inv_count += 1
-
-        if inv_count == 1 :
-            # start of sentence
-            inv_str += "You have " + i["name"]
-
-        elif inv_count == 2 :
-            # connector phrase to additional item
-            inv_str += ", along with " + i["name"]
-             
-        else :
-            # from this point, all other items are separated with commas
-            inv_str += ", " + i["name"]
-         
-
-    if inv_str != "" :
-        if inv_count <= 2 :
-            # end sentence with full stop
-            inv_str += "."
-
-        else :
-            # for items separated by commas, an 'and' is inserted before the last item for fluid reading
-            inv_str = inv_str.rpartition(",")[0] + " and" + inv_str.rpartition(",")[2] + "."
-
-        print(inv_str)
- 
-    else :
-        print("You currently have no items.")
-        
+    
 
 
 def print_exit(direction, leads_to):
@@ -103,8 +85,30 @@ def print_people(people):
     In the room, Catherine is present.
 
     """
+      
+    if not people:
+        print("You're alone")
 
-    ppl_str = ""    # concatenated string
+    else:
+        a = []
+        b = []
+        for i in people:            
+            a.append(i["name"])
+            
+            if len(a) and len(b) == len(people):
+                break
+                
+            if people_soldier2 and people_soldier1 in people:
+                b.append(i["description"])
+        if len(a) == 1:
+            print("%s is in the room with you" % ("".join(a)))
+        elif len(b) > 0: #!!!!address in morning print soldies descriptions one for stroy!!!
+            b.sort()
+            print("%s with a %s" % (b[0], b[1])) 
+
+
+
+    '''ppl_str = ""    # concatenated string
     ppl_count = 0   # number of people in room
     
     for i in people :
@@ -118,10 +122,10 @@ def print_people(people):
                 
             else :
                 # from this point, all other items are separated with commas
-                ppl_str += ", " + current_room["people"][i]["name"]
+                ppl_str += ", " + current_room["people"][i]["name"]'''
                 
 
-    if ppl_str != "" :
+    '''if ppl_str != "" :
         
         if ppl_count != 1 :
             # for items separated by commas, an 'and' is inserted before the last item for fluid reading
@@ -131,7 +135,7 @@ def print_people(people):
             # end sentence with full stop
             ppl_str += " is present."
             
-        print(ppl_str)
+        print(ppl_str)'''
         
     
 
@@ -161,7 +165,7 @@ def print_room(room):
     print()
     print(room["description"])
     print()
-
+    
     # Print exits in full sentences
     exit_str = ""
     

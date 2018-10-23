@@ -14,7 +14,7 @@ a 'decapita' can be arranged!""",
 
     "questions": ["How are you?", "What is your name?"],
 
-    "responses": ["I was better before you arrived in this kingdom.", "(The viceroy ignores you)"]
+    "responses": ["Im the king I'm the merries man in this land", "(The viceroy ignores you)"]
 
 }
 

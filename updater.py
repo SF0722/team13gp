@@ -20,6 +20,6 @@ item_room_descriptions = {
 
 people_conversations = {
 	"wizard_cured" : "What can I do for you?",
-	"Qwizard_cured" : ["Can you help me?"],
+	"Qwizard_cured" : ["just goes into mono logue no question no answers"],
 	"Rwizard_cured" : ["Sure"]
 }

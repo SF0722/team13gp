@@ -20,7 +20,7 @@ There are flower pots on the wall with beautiful foxgloves growing in them.
 
     "items": [],
 
-    "people": {"lady":people_lady, "catherine":people_lady},
+    "people": [people_lady],
 
     "puzzles" : [riddle_lady],
 
@@ -33,7 +33,7 @@ room_greathall = {
 
     "description":
    	 """A Grand hall, with fine tapestries and paintings on every wall.
-On a shelf near the door lies a single wooden goblet.
+
 A straight oak table stands in centre of the hall
 with many chairs. At the head of the table,
 a grand gilded chair dominates the room.
@@ -44,7 +44,7 @@ next to a fireplace, where a handful of coals lie""",
 
     "items": [item_goblet],
 
-    "people": {"wizard":people_wizard},
+    "people": [people_wizard],
 
     "puzzles" : [],
 	
@@ -62,8 +62,7 @@ room_throne = {
 
     "items": [],
 
-    "people": {"king":people_king,
-               "viceroy":people_viceroy},
+    "people": [people_king, people_viceroy],
 
     "puzzles" : [],
 	
@@ -84,7 +83,7 @@ There is a single old boot in the middle of the walkway which seems odd to you."
 
     "items": [item_oldboot],
 
-    "people": {"soldier":people_soldier1, "warrior":people_soldier2},
+    "people": [people_soldier1, people_soldier2],
 
     "puzzles" : [dice_game],
 
@@ -122,7 +121,7 @@ from the wall are falling away onto the floor.""",
 
     "items": [item_rock],
 
-    "people": {},
+    "people": [],
 
     "puzzles" : [],
 	
