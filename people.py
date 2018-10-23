@@ -49,7 +49,9 @@ people_wizard = {
 
     "name": "Gaius",
 
-    "description": """""",
+    "description": """clearly only a reflection of his former self,
+    				hungover or still possibly drunk from the night before,
+    				he sits mouth open with his head back, snoring loudly.""",
 
     "conversation": conv_wizard,
 
@@ -58,7 +60,7 @@ people_wizard = {
 }
 
 people_soldier1 = {
-    "id": "soldier",
+    "id": "Captain ",
 
     "name": "Tom",
 
@@ -72,7 +74,7 @@ people_soldier1 = {
 }
 
 people_soldier2 = {
-    "id": "warrior",
+    "id": "sargent",
 
     "name": "a warrior",
 
